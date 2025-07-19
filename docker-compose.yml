@@ -1,0 +1,9 @@
+services:
+  goorm-docker-spring:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: goorm-docker-spring:latest
+    container_name: goorm-docker-spring
+    ports:
+      - "8080:8080"
