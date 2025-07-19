@@ -1,5 +1,4 @@
 FROM amazonlinux:latest
-MAINTAINER the.eris.net
 
 RUN yum update -y
 RUN yum install java-21-amazon-corretto -y
