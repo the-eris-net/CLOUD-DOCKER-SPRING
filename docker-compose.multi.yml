@@ -1,0 +1,33 @@
+services:
+  goorm-docker-spring:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: goorm-docker-spring:latest
+    container_name: goorm-docker-spring
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/guestvol
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/mydb
+      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_PASSWORD: mypass
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypass
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
