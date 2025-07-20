@@ -12,7 +12,7 @@ on:
         required: true
         default: 'Triggered by workflow_dispatch'
 
-env:
+#env:
 #  S3_BUCKET_NAME: groom-tricount-bucket
 #  DOCKER_TAG_VERSION: ${{ github.run_number }}
 #  DESTINATION_FILE: groom-test-docker.tar
