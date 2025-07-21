@@ -12,7 +12,7 @@ public class HostnameController {
     @GetMapping("/hostname")
     public String getHostname() {
         try {
-            return InetAddress.getLocalHost().getHostName();
+            return InetAddress.getLocalHost().getHostName() + "\n";
         } catch (UnknownHostException e) {
             throw new RuntimeException("Unable to retrieve hostname", e);
         }
