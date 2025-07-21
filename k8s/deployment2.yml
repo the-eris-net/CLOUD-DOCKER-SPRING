@@ -1,9 +1,9 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: my-pod-rs
+  name: my-pod-deploy
 spec:
-  replicas: 2
+  replicas: 8
   selector:
     matchLabels:
       app: my-pod

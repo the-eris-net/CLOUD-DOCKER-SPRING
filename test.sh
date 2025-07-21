@@ -15,4 +15,7 @@ kubectl port-forward pod/app 8888:8080
 
 kubectl edit rs my-pod-rs
 
+kubectl delete rs my-pod-rs
 
+kubectl rollout history deploy my-pod-deploy
+kubectl rollout undo deployment my-pod-deploy --to-revision=4

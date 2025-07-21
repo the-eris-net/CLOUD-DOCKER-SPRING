@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-pod-deploy
+spec:
+  replicas: 8
+  revisionHistoryLimit: 10  # 기본값: 이전 ReplicaSet 10개까지 보관
+  minReadySeconds: 0        # 기본값: Pod이 Ready 상태가 된 직후 다음 단계로 진행
+  progressDeadlineSeconds: 600  # 기본값: 롤링 업데이트 실패로 간주하기까지 10분
+  strategy:
+    type: RollingUpdate     # 기본 배포 전략
+    rollingUpdate:
+      maxUnavailable: 25%   # 최대 비가용 Pod 비율 (기존 Pod 중 동시에 죽일 수 있는 수)
+      maxSurge: 25%         # 최대 초과 Pod 비율 (업데이트 중 새로 생성할 수 있는 Pod 수)
+  selector:
+    matchLabels:
+      app: my-pod
+  template:
+    metadata:
+      labels:
+        app: my-pod
+      annotations:
+        description: "first deploy"
+    spec:
+      containers:
+        - name: app
+          image: theerisnet/goorm-docker-spring:latest
