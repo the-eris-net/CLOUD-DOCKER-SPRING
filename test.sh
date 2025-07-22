@@ -20,3 +20,5 @@ kubectl delete rs my-pod-rs
 kubectl rollout history deploy my-pod-deploy
 kubectl rollout undo deployment my-pod-deploy --to-revision=4
 kubectl port-forward svc/my-pod-service 80:80
+
+minikube addons enable ingress
