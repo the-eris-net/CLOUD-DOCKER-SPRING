@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: app
-          image: theerisnet/goorm-docker-spring:latest
+          image: theerisnet/goorm-docker-spring:multi
